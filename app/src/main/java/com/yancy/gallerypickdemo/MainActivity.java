@@ -122,7 +122,10 @@ public class MainActivity extends AppCompatActivity {
                 if (!TextUtils.isEmpty(etMulMaxSize.getText().toString()) && Integer.valueOf(etMulMaxSize.getText().toString()) > 0) {
                     galleryConfig.getBuilder().maxSize(Integer.valueOf(etMulMaxSize.getText().toString())).build();
                 }
-                galleryConfig.getBuilder().isOpenCamera(false).build();
+                galleryConfig.getBuilder()
+//                        .noGif(true)
+                        .isOpenCamera(false)
+                        .build();
                 initPermissions();
             }
         });

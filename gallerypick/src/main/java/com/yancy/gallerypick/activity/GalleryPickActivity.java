@@ -257,6 +257,11 @@ public class GalleryPickActivity extends BaseActivity {
                             long dateTime = data.getLong(data.getColumnIndexOrThrow(IMAGE_PROJECTION[2]));
                             int size = data.getInt(data.getColumnIndexOrThrow(IMAGE_PROJECTION[4]));
                             boolean showFlag = size > 1024 * 5;                           //是否大于5K
+                            if(galleryConfig.isNoGif() && showFlag){
+                               if(name.endsWith(".gif")){
+                                   showFlag = false;
+                               }
+                            }
                             PhotoInfo photoInfo = new PhotoInfo(path, name, dateTime);
                             if (showFlag) {
                                 tempPhotoList.add(photoInfo);

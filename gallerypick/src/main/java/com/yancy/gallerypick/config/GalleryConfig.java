@@ -30,6 +30,7 @@ public class GalleryConfig {
     private int maxHeight;                  // 最大的裁剪值   默认    500
 
     private Builder builder;
+    private boolean noGif;
 
 
     private GalleryConfig(Builder builder) {
@@ -51,7 +52,12 @@ public class GalleryConfig {
         this.aspectRatioY = builder.aspectRatioY;
         this.maxWidth = builder.maxWidth;
         this.maxHeight = builder.maxHeight;
+        this.noGif = builder.noGif;
         this.builder = builder;
+    }
+
+    public boolean isNoGif() {
+        return noGif;
     }
 
     public static class Builder implements Serializable {
@@ -71,6 +77,7 @@ public class GalleryConfig {
         private float aspectRatioY = 1;
         private int maxWidth = 500;
         private int maxHeight = 500;
+        private boolean noGif = false;
 
         private ArrayList<String> pathList = new ArrayList<>();
 
@@ -93,6 +100,11 @@ public class GalleryConfig {
 
         public Builder imageLoader(ImageLoader imageLoader) {
             this.imageLoader = imageLoader;
+            return this;
+        }
+
+        public Builder noGif(boolean noGif){
+            this.noGif = noGif;
             return this;
         }
 
